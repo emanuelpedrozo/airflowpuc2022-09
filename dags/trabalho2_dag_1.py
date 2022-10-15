@@ -59,7 +59,7 @@ def trabalho2_dag1():
         return NOME_TABELA_3
 
     @task
-    def get_together(NOME_TABELA, NOME_TABELA_2, NOME_TABELA_3):
+    def export_csv(NOME_TABELA, NOME_TABELA_2, NOME_TABELA_3):
         TABELA_UNICA = "/tmp/tabela_unica.csv"
         df = pd.read_csv(NOME_TABELA, sep=";")
         df1 = pd.read_csv(NOME_TABELA_2, sep=";")
@@ -84,7 +84,7 @@ def trabalho2_dag1():
     indicador = ind_passageiros(df) 
     ticket = taf_passageiros(df)
     sibsp_parch = ind_sisb_parch(df)
-    tab_final = get_together(indicador, ticket, sibsp_parch)
+    tab_final = export_csv(indicador, ticket, sibsp_parch)
 
     inicio >> df >> [indicador, ticket, sibsp_parch] >> tab_final >> triggerdag >> fim
 
