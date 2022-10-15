@@ -27,4 +27,4 @@ def trabalho2_dag2():
 
     indicador >> fim
 
-execucao = trabalho2_dag2
+execucao = trabalho2_dag2()
