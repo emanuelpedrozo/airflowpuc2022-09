@@ -15,7 +15,7 @@ default_args = {
 }
 
 @dag(default_args=default_args, schedule_interval='@once', catchup=False, tags=['DAG1'])
-def trabalho02_dag01():
+def trabalho2_dag_1():
 
     @task
     def cap_dados():
@@ -86,5 +86,5 @@ def trabalho02_dag01():
 
     inicio >> df >> [indicador, ticket, sibsp_parch] >> tab_final >> triggerdag
 
-execucao = trabalho02_dag01()
+execucao = trabalho2_dag_1()
         

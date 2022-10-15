@@ -12,7 +12,7 @@ default_args = {
 }
 
 @dag(default_args=default_args, schedule_interval='@once', catchup=False, tags=['DAG2'])
-def trabalho02_dag02():
+def trabalho2_dag2():
     @task
     def media_total():
         NOME_TABELA = "/tmp/resultados.csv"
@@ -27,4 +27,4 @@ def trabalho02_dag02():
 
     indicador >> fim
 
-execucao = trabalho02_dag02
+execucao = trabalho2_dag2
