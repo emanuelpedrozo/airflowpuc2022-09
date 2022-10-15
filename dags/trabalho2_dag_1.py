@@ -15,7 +15,7 @@ default_args = {
 }
 
 @dag(default_args=default_args, schedule_interval='@once', catchup=False, tags=['DAG1'])
-def trabalho2_dag_1():
+def trabalho2_dag1():
 
     @task
     def cap_dados():
@@ -76,7 +76,7 @@ def trabalho2_dag_1():
         print("Terminou")
     triggerdag = TriggerDagRunOperator(
         task_id="trigga_trabalho_02_ex02",
-        trigger_dag_id="trabalho2_dag_2")
+        trigger_dag_id="trabalho2_dag2")
 
     df = cap_dados()
     indicador = ind_passageiros(df) 
@@ -86,5 +86,5 @@ def trabalho2_dag_1():
 
     inicio >> df >> [indicador, ticket, sibsp_parch] >> tab_final >> triggerdag
 
-execucao = trabalho2_dag_1()
+execucao = trabalho2_dag1()
         
