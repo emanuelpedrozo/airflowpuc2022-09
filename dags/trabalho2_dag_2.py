@@ -18,7 +18,7 @@ def trabalho2_dag2():
         NOME_TABELA = "/tmp/resultados.csv"
         file = r"/tmp/tabela_unica.csv"
         df = pd.read_csv(file, sep=";")
-        res1 = df.groupby(['Sex'])['PassengerId', 'Fare', 'SibSp', 'Parch'].mean().reset_index()
+        res1 = df.groupby(['Sex'])['PassengerId', 'Fare', 'sibsp_parch'].mean().reset_index()
         res1.to_csv(NOME_TABELA, index=False, sep=';')
 
     fim = EmptyOperator(task_id="fim")
